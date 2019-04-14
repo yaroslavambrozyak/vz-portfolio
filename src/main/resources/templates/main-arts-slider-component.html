@@ -1,7 +1,10 @@
 <div class="slides" th:fragment="slides" xmlns:th="http://www.w3.org/1999/xhtml">
 
     <th:block th:each="art : ${arts}">
-        <section class="slide" th:style="'background-image:url(' + ${art.imagePath} + ');'"></section>
+        <section class="slide" th:style="'background-image:url(' + ${art.imagePath} + ');'">
+            <span class="art-hidden-href">1</span>
+            <span class="art-name" th:text="${art.name}"></span>
+        </section>
     </th:block>
 
 </div>

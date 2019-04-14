@@ -25,4 +25,14 @@ public class ArtController {
         model.addAttribute("arts",artService.getMainArtsByCategory(""));
         return "main-arts";
     }
+
+    @GetMapping("/allArts")
+    public String showAllArtsPage(){
+        return null;
+    }
+
+    @GetMapping("/art")
+    public String showArtPage(){
+        return null;
+    }
 }

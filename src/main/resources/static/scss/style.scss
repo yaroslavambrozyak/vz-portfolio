@@ -5,6 +5,11 @@ $selected-color: #fe8013;
   src: url("/font/Arapey-Regular.ttf")
 }
 
+@font-face {
+  font-family: Arapey-Italic;
+  src: url("/font/Arapey-Italic.ttf");
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -38,6 +43,18 @@ html, body {
   left: 5%;
   width: 100px;
   height: 50px;
+}
+
+.social-link {
+  display: inline-block;
+  width: calc(.8vw + .8vh + .2vmin);
+  margin: 0 6px;
+}
+
+.social-buttons{
+  position: absolute;
+  bottom: 25px;
+  right: 15px;
 }
 
 

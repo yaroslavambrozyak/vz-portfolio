@@ -6,7 +6,8 @@ var slider = function (sliderElement) {
 	var keyUp = {38:1, 33:1};
 	var keyDown = {40:1, 34:1};
     var slidesAmount = document.getElementsByClassName("slide").length;
-
+    var viewLink = document.getElementsByClassName("view-link")[0];
+    
 	var init = function () {
 
 		document.body.classList.add('slider__body');
@@ -94,6 +95,8 @@ var slider = function (sliderElement) {
 				changeSlide(1);
 			}
 		});
+
+		changeViewLinkAddress(1);
 	};
 
 
@@ -126,6 +129,14 @@ var slider = function (sliderElement) {
 		}
 	};
 
+
+	// change view button address on slide changes
+	var changeViewLinkAddress = function (index) {
+		var elements = document.getElementsByClassName("art-hidden-href");
+		var element = elements[index-1];
+		viewLink.href = element.innerHTML;
+    };
+
 	// handle page/section change
 	var changeSlide = function (direction) {
 
@@ -140,6 +151,8 @@ var slider = function (sliderElement) {
 		changeCss(document.querySelector(sliderElement), {
 			transform: 'translate3d(0, ' + -(currentSlide - 1) * 100 + '%, 0)'
 		});
+
+		changeViewLinkAddress(currentSlide);
 
 		// change dots
         var oldSlideNav = document.querySelector('a.slider__indicator--active');
@@ -174,3 +187,4 @@ var slider = function (sliderElement) {
 		window.addEventListener('onload', init(), false);
 	}
 };
+
