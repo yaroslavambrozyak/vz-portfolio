@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/preload.css">
+</head>
+<body>
+<div class="full-page">
+    <div id="preload-logo-container">
+        <img id="preload-animation" src="/img/load.gif">
+    </div>
+    <!--<div id="preload-art-container" th:style="'background:url(' + @{/<path-to-image>} + ');'"></div> -->
+    <div id="preload-art-container" th:style="'background-image:url(' + ${imagePath} + ');'"></div>
+    <div id="preload-text-container">
+        <h1 id="preload-owner-name">Vlad Zvarun</h1>
+        <h3 id="preload-profession"></h3>
+        <span id="preload-link" onclick="onStartLinkClick()">START</span>
+    </div>
+</div>
+<script src="/js/preload.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+@import "style";
+
+#preload-logo-container {
+  background: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  animation-name: preload-hide-animation;
+  animation-duration: 1s;
+  animation-delay: 2.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+#preload-animation {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#preload-art-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center;
+  background-size: cover;
+  filter: grayscale(100%);
+  transition: all 2s ease;
+}
+
+#preload-text-container {
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transition: all 2s ease;
+  font-family: Arapey-Regular;
+}
+
+#preload-owner-name {
+  font-size: 6vh;
+}
+
+#preload-profession {
+  color: white;
+  font-size: 4vh;
+  &:after {
+    content: "Graphic Designer";
+    animation: profession-change-animation 3s linear infinite;
+  }
+}
+
+#preload-link {
+  cursor: pointer;
+  color: white;
+  font-size: 2vh;
+  transition: all 1s ease;
+  &:hover{
+    color: $selected-color;
+  }
+}
+
+@keyframes preload-hide-animation {
+
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
+
+@keyframes profession-change-animation {
+  25% {
+    opacity: 0
+  }
+  50% {
+    content: "Concept Artist";
+    opacity: 1;
+  }
+  75% {
+    opacity: 0
+  }
+}

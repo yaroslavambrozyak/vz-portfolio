@@ -1,0 +1,7 @@
+<div class="slides" th:fragment="slides" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <th:block th:each="art : ${arts}">
+        <section class="slide" th:style="'background-image:url(' + ${art.imagePath} + ');'"></section>
+    </th:block>
+
+</div>
