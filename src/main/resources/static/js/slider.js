@@ -96,7 +96,7 @@ var slider = function (sliderElement) {
 			}
 		});
 
-		changeViewLinkAddress(1);
+		changeViewLinkAddress(currentSlide);
 	};
 
 
@@ -132,7 +132,7 @@ var slider = function (sliderElement) {
 
 	// change view button address on slide changes
 	var changeViewLinkAddress = function (index) {
-		var elements = document.getElementsByClassName("art-hidden-href");
+		var elements = document.getElementsByClassName("art-name");
 		var element = elements[index-1];
 		viewLink.href = element.innerHTML;
     };

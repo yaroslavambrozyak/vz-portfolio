@@ -16,12 +16,13 @@
 </div>
 <div class="footer-container">
     <span th:replace="rights :: rights"></span>
-    <a onmouseover="onViewLinkHover()" onmouseout="onViewLinkHoverOut()" class="view-link">View</a>
+    <a onmouseover="onViewLinkHover(this)" onmouseout="onViewLinkHoverOut()" class="view-link">View</a>
     <div th:replace="social-buttons :: social-buttons"></div>
 </div>
 
 
 <script src="/js/slider.js"></script>
 <script src="/js/main-arts.js"></script>
+<script src="/js/link-animation.js"></script>
 </body>
 </html>

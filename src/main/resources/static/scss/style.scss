@@ -13,50 +13,75 @@ $selected-color: #fe8013;
 html, body {
   height: 100%;
   margin: 0;
+  background-color: black;
+  transition: all .7s ease;
 }
 
-.full-page{
+.full-page {
   min-height: 100%;
 }
 
-.site-navigation{
+.site-navigation {
   position: fixed;
-  top:25px;
-  right: 5%;
-
+  top: 25px;
+  right: 3%;
 }
 
-.site-navigation-link{
+.site-navigation-link {
   color: white;
   font-family: Arapey-Regular;
+  font-size: calc(.5vw + .5vh + .2vmin);
+  font-family: Arapey-Regular;
+  text-decoration: none;
 
-  &:hover{
+  &:hover {
     color: $selected-color;
     transition: all 2s ease;
   }
 
 }
 
-.site-logo{
+.site-logo {
   position: fixed;
   top: 25px;
-  left: 5%;
-  width: 100px;
-  height: 50px;
+  left: 3%;
+  min-width: 70px;
+  width: calc(6vw + 5.5vh);
 }
 
 .social-link {
   display: inline-block;
   width: calc(.8vw + .8vh + .2vmin);
   margin: 0 6px;
+
 }
 
-.social-buttons{
+a svg .cls-1  {
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+a svg:hover .cls-1 {
+  fill: $selected-color;
+  transition: all 2s ease;
+  -webkit-transition: all 2s ease;
+}
+
+
+.social-buttons {
   position: absolute;
   bottom: 25px;
-  right: 15px;
+  right: 3%;
 }
 
+.rights {
+  position: absolute;
+  bottom: 25px;
+  left: 3%;
+  color: white;
+  font-family: Arapey-Regular;
+  font-size: calc(.5vw + .5vh + .2vmin);
+}
 
 @media screen and (max-width: 1024px) {
 
