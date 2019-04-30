@@ -1,13 +1,15 @@
-var slider = function (sliderElement) {
+var currentSlide = 1;
+var isInitialized = false;
 
+var slider = function (sliderElement) {
 	var pages = [];
-	var currentSlide = 1;
+	//var currentSlide = 1;
 	var isChanging = false;
 	var keyUp = {38:1, 33:1};
 	var keyDown = {40:1, 34:1};
     var slidesAmount = document.getElementsByClassName("slide").length;
     var viewLink = document.getElementsByClassName("view-link")[0];
-    
+
 	var init = function () {
 
 		document.body.classList.add('slider__body');
@@ -96,6 +98,7 @@ var slider = function (sliderElement) {
 			}
 		});
 
+		isInitialized = true;
 		changeViewLinkAddress(currentSlide);
 	};
 

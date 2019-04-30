@@ -24,7 +24,7 @@ public class ArtServiceImpl implements ArtService {
 
     private List<Art> prepareArt() {
         Art art1 = Art.builder()
-                .imagePath("https://www.rollingstone.com/wp-content/uploads/2018/08/1319_FOB_Mix_QnA_Slash_A.jpg?crop=900:600&width=440")
+                .imagePath("/art/main.jpg")
                 .name("hello")
                 .build();
 
@@ -38,6 +38,6 @@ public class ArtServiceImpl implements ArtService {
                 .name("qweqwee")
                 .build();
 
-        return Arrays.asList(art2, art3, art1);
+        return Arrays.asList(art1, art3, art2);
     }
 }

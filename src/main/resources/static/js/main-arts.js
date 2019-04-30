@@ -1,4 +1,6 @@
-slider('.slides');
+//slider('.slides');
+
+
 
 var currentSliderPosition;
 
@@ -18,13 +20,14 @@ function onViewLinkHoverOut() {
 }
 
 function getSliderPosition() {
-    var el = document.getElementsByClassName("slides")[0];
+    /*var el = document.getElementsByClassName("slides")[0];
     var values = el.style.transform.split(/\w+\(|\);?/);
     if (!values[1] || !values[1].length) {
         return 0;
     }
     var yTransition = values[1].split(/,\s?/g)[1];
     var yValue = yTransition.replace('%', '');
-    return Math.abs(yValue / 100);
+    return Math.abs(yValue / 100);*/
+    return currentSlide;
 }
 

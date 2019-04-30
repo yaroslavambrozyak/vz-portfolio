@@ -1,36 +1,35 @@
 function onStartLinkClick() {
-    document.getElementById("preload-text-container").setAttribute("style","opacity:0");
+    document.getElementById("preload-text-container").setAttribute("style", "opacity:0");
     document.getElementById("preload-art-container").style.filter = "grayscale(0%)";
-
-
-
-    setTimeout(function () {
-        //window.location.href = '/mainArts';
-        getMainArtContent();
-    },2100)
+    var begin = new Date().getMilliseconds();
+    makeAjaxCall("/main").then(function (response) {
+        var end = new Date().getMilliseconds();
+        var diff = end - begin;
+        var delay = diff < 2100 ? 2100 : 0;
+        setTimeout(function () {
+            document.querySelector('body').innerHTML = response;
+            slider('.slides');
+        }, delay);
+    });
 }
 
-function getMainArtContent() {
 
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
-            if (xmlhttp.status == 200) {
-                document.open();
-                document.write(xmlhttp.responseText);
-                document.close();
-            }
-            else if (xmlhttp.status == 400) {
-                alert('There was an error 400');
-            }
-            else {
-                alert('something else other than 200 was returned');
-            }
-        }
-    };
-
-    xmlhttp.open("GET", "/main", true);
-    xmlhttp.send();
+function makeAjaxCall(url) {
+    return new Promise(function (succeed, fail) {
+        var request = new XMLHttpRequest();
+        request.open("GET", url, true);
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        request.setRequestHeader('X-From-Preload-Page', 'true');
+        request.addEventListener("load", function () {
+            if (request.status < 400)
+                succeed(request.response);
+            else
+                fail(new Error("Request failed: " + request.statusText));
+        });
+        request.addEventListener("error", function () {
+            fail(new Error("Network error"));
+        });
+        request.send();
+    });
 }
 
