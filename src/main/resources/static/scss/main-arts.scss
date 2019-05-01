@@ -44,6 +44,7 @@
   width: 100%;
   height: 100px;
   animation: load-fadein 2s ease;
+  z-index: 999;
 }
 
 .footer-container {
@@ -53,6 +54,7 @@
   width: 100%;
   height: 100px;
   animation: load-fadein 2s ease;
+  z-index: 999;
 }
 
 .view-link {
@@ -71,9 +73,16 @@
   }
 }
 
+.slides{
+  height: 100%;
+  filter: grayscale(100%);
+  transition: all 2s ease;
+}
+
 .slide {
   background: no-repeat center;
   background-size: cover;
+  height: 100%;
 }
 
 .art-name {

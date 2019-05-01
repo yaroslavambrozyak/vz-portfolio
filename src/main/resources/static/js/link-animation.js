@@ -30,7 +30,7 @@ for(var j = 0; j< ajaxLinks.length; j++){
     });
 }
 
-function makeAjaxCall(url) {
+/*function makeAjaxCall(url) {
     return new Promise(function(succeed, fail) {
         var request = new XMLHttpRequest();
         request.open("GET", url, true);
@@ -45,4 +45,4 @@ function makeAjaxCall(url) {
         });
         request.send();
     });
-}
+}*/

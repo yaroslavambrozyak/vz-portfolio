@@ -1,11 +1,3 @@
-if(!isInitialized && isMainPage()){
-    slider('.slides');
-}
-
-function isMainPage() {
-    return window.location.href.endsWith("main");
-}
-
 function onViewLinkHover() {
     var artNames = document.getElementsByClassName("art-name");
     var artName = artNames[currentSlide];
