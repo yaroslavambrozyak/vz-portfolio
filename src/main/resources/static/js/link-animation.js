@@ -14,7 +14,7 @@ for (var i = 0; i < links.length; i++) {
 }*/
 
 var ajaxLinks = document.getElementsByClassName("type-link");
-var slidesContainer = document.getElementsByClassName("slides")[0];
+var slidesContainer = document.querySelector(".slides");
 
 for(var j = 0; j< ajaxLinks.length; j++){
     ajaxLinks[j].addEventListener('click', function (event) {

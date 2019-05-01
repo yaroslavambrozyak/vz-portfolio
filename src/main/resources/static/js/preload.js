@@ -2,7 +2,7 @@ function onStartLinkClick() {
     document.getElementById("preload-text-container").setAttribute("style", "opacity:0");
     document.getElementById("preload-art-container").style.filter = "grayscale(0%)";
     var begin = new Date().getMilliseconds();
-    makeAjaxCall("/main").then(function (response) {
+    makeAjaxCall1("/main").then(function (response) {
         var end = new Date().getMilliseconds();
         var diff = end - begin;
         var delay = diff < 2100 ? 2100 : 0;
@@ -14,7 +14,7 @@ function onStartLinkClick() {
 }
 
 
-function makeAjaxCall(url) {
+function makeAjaxCall1(url) {
     return new Promise(function (succeed, fail) {
         var request = new XMLHttpRequest();
         request.open("GET", url, true);

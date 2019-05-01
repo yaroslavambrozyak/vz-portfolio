@@ -91,6 +91,10 @@
   animation: load-fadein 2s ease;
 }
 
+.main-art-component{
+  height:100%;
+}
+
 @keyframes load-fadein {
   from{opacity: 0;}
   to{opacity: 1;}

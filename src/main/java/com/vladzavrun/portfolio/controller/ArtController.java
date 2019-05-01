@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.PushBuilder;
 
 @Controller
 public class ArtController {
@@ -20,7 +21,7 @@ public class ArtController {
     @GetMapping("/")
     public String showPreloadPage(Model model) {
         model.addAttribute("imagePath", artService.getPreloadImagePath());
-        return "preload";
+        return "/page/preload";
     }
 
     @GetMapping("/main")
@@ -28,11 +29,11 @@ public class ArtController {
         model.addAttribute("arts", artService.getMainArtsByCategory(""));
 
         String requestFromPreloadPage = request.getHeader("X-From-Preload-Page");
-        if(requestFromPreloadPage != null && requestFromPreloadPage.equals("true")){
+        if (requestFromPreloadPage != null && requestFromPreloadPage.equals("true")) {
             return "/component/main-art-component";
         }
 
-        return AjaxTools.isAjaxRequest(request) ? "main-arts-slider-component" : "main-arts";
+        return AjaxTools.isAjaxRequest(request) ? "/fragment/main-arts-slider-fragment" : "/page/main-arts";
     }
 
     @GetMapping("/arts")
