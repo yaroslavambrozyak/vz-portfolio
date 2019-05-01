@@ -12,9 +12,16 @@ public class ArtServiceImpl implements ArtService {
 
     @Override
     public List<Art> getMainArtsByCategory(String category) {
-        List<Art> arts = new ArrayList<>();
-        arts.addAll(prepareArt());
-        return arts;
+        if (category.equals("concept")) {
+            List<Art> arts = new ArrayList<>();
+            arts.addAll(prepareArt());
+            return arts;
+        }
+
+        return Arrays.asList(Art.builder()
+                .imagePath("https://www.kerrang.com/assets/images/47412/Slash-And-Myles_b4b62e6b8feb204f329c1700ab8c6c4a.jpg")
+                .name("qweqwee")
+                .build());
     }
 
     @Override

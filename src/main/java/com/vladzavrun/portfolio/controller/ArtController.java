@@ -29,22 +29,23 @@ public class ArtController {
 
     @GetMapping("/main")
     public String showMainArtPage(HttpServletRequest request, Model model
-            , @RequestParam(value = "preload",required = false) boolean forPreload) {
+            , @RequestParam(value = "type", required = false, defaultValue = "concept") String type
+            , @RequestParam(value = "preload", required = false) boolean afterPreload) {
 
         if (!AjaxTools.isAjaxRequest(request)) {
             return "redirect:/";
         }
 
         List<Art> arts;
-        if (forPreload) {
-            arts = artService.getMainArtsByCategory("").subList(0, 1);
-        } else {
-            List<Art> artList = artService.getMainArtsByCategory("");
+        if (afterPreload) {
+            List<Art> artList = artService.getMainArtsByCategory(type);
             artList.remove(0);
             arts = artList;
+        } else{
+            arts = artService.getMainArtsByCategory(type);
         }
-        model.addAttribute("arts", arts);
 
+        model.addAttribute("arts", arts);
         return "/fragment/main-arts-slider-fragment";
     }
 

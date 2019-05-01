@@ -30,6 +30,7 @@
   transition: color 1s ease;
   text-decoration: none;
   font-size: calc(.5vw + .5vh + .2vmin);
+  cursor: pointer;
 
   &:hover {
     color: $selected-color;
@@ -79,6 +80,10 @@
   transition: all 2s ease;
 }
 
+.active{
+  color: $selected-color !important;
+}
+
 .slide {
   background: no-repeat center;
   background-size: cover;
@@ -98,6 +103,7 @@
 
 .slider__indicators{
   animation: load-fadein 2s ease;
+  transition: all 2s ease;
 }
 
 .main-art-component{
