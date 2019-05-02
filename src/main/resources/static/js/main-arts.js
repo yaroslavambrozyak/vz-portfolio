@@ -2,14 +2,14 @@ let slidesContainer = document.querySelector(".slides");
 
 function onViewLinkHover() {
     let artNames = document.getElementsByClassName("art-name");
-    let artName = artNames[currentSlide];
+    let artName = artNames[currentSlide - 1];
     artName.style.transform = "translateX(0%)";
     artName.style.left = "5%";
 }
 
 function onViewLinkHoverOut() {
     let artNames = document.getElementsByClassName("art-name");
-    let artName = artNames[currentSlide];
+    let artName = artNames[currentSlide - 1];
     artName.style.left = "0%";
     artName.style.transform = "translateX(-101%)";
 }

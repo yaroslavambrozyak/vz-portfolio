@@ -1,4 +1,4 @@
-<div class="social-buttons" th:fragment="social-buttons" xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="social-buttons">
     <a href="mailto:vladzvarun@icloud.com" class="social-link" target="_blank">
         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130">
             <defs>

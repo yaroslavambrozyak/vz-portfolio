@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.PushBuilder;
 import java.util.List;
 
 @Controller
@@ -23,8 +22,8 @@ public class ArtController {
 
     @GetMapping("/")
     public String showPreloadPage(Model model) {
-        model.addAttribute("arts", artService.getMainArtsByCategory("").subList(0, 1));
-        return "/page/preload";
+        model.addAttribute("arts", artService.getMainArtsByCategory("concept").subList(0, 1));
+        return "/page/main";
     }
 
     @GetMapping("/main")
@@ -41,12 +40,12 @@ public class ArtController {
             List<Art> artList = artService.getMainArtsByCategory(type);
             artList.remove(0);
             arts = artList;
-        } else{
+        } else {
             arts = artService.getMainArtsByCategory(type);
         }
 
         model.addAttribute("arts", arts);
-        return "/fragment/main-arts-slider-fragment";
+        return "/fragment/main-arts-fragment";
     }
 
     @GetMapping("/arts")

@@ -1,4 +1,4 @@
-<div class="type-link-container" th:fragment="art-type-navigation" xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="type-link-container">
     <span class="type-link" onclick="onTypeLinkClick(this)">concept</span>
     <span class="type-link" onclick="onTypeLinkClick(this)">asdasda</span>
     <span class="type-link" onclick="onTypeLinkClick(this)">qwes</span>

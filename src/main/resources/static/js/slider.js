@@ -1,48 +1,52 @@
-var currentSlide = 1;
+var currentSlide;
 var isInitialized = false;
 
 var slider = function (sliderElement) {
+
 	var pages = [];
 	var isChanging = false;
 	var keyUp = {38:1, 33:1};
 	var keyDown = {40:1, 34:1};
     var slidesAmount = document.getElementsByClassName("slide").length;
     var viewLink = document.querySelector(".view-link");
+	currentSlide = 1;
+    alert(currentSlide);
+	alert(slidesAmount);
 
 	var init = function () {
+		if(!isInitialized) {
+            document.body.classList.add('slider__body');
 
-		document.body.classList.add('slider__body');
+            // control scrolling
+            whatWheel = 'onwheel' in document.createElement('div') ? 'wheel' : document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
+            window.addEventListener(whatWheel, function (e) {
+                var direction = e.wheelDelta || e.deltaY;
+                if (direction > 0) {
+                    changeSlide(-1);
+                } else {
+                    changeSlide(1);
+                }
+            });
 
-		// control scrolling
-		whatWheel = 'onwheel' in document.createElement('div') ? 'wheel' : document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
-		window.addEventListener(whatWheel, function (e) {
-      var direction = e.wheelDelta || e.deltaY;
-  		if (direction > 0) {
-				changeSlide(-1);
-			} else {
-				changeSlide(1);
-			}
-		});
+            // allow keyboard input
+            window.addEventListener('keydown', function (e) {
+                if (keyUp[e.keyCode]) {
+                    changeSlide(-1);
+                } else if (keyDown[e.keyCode]) {
+                    changeSlide(1);
+                }
+            });
 
-		// allow keyboard input
-		window.addEventListener('keydown', function (e) {
-			if (keyUp[e.keyCode]) {
-				changeSlide(-1);
-			} else if (keyDown[e.keyCode]) {
-				changeSlide(1);
-			}
-		});
-
-		// page change animation is done
-		detectChangeEnd() && document.querySelector(sliderElement).addEventListener(detectChangeEnd(), function () {
-			if (isChanging) {
-				setTimeout(function() {
-					isChanging = false;
-					window.location.hash = document.querySelector('[data-slider-index="' + currentSlide + '"]').id;
-				}, 400);
-			}
-		});
-
+            // page change animation is done
+            detectChangeEnd() && document.querySelector(sliderElement).addEventListener(detectChangeEnd(), function () {
+                if (isChanging) {
+                    setTimeout(function () {
+                        isChanging = false;
+                        window.location.hash = document.querySelector('[data-slider-index="' + currentSlide + '"]').id;
+                    }, 400);
+                }
+            });
+        }
 		// set up page and build visual indicators
 		document.querySelector(sliderElement).classList.add('slider__container');
 		var indicatorContainer = document.createElement('div');
@@ -77,26 +81,27 @@ var slider = function (sliderElement) {
 		var touchStartPos = 0;
 		var touchStopPos = 0;
 		var touchMinLength = 90;
-		document.addEventListener('touchstart', function (e) {
-			e.preventDefault();
-			if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
-				var touch = e.touches[0] || e.changedTouches[0];
-				touchStartPos = touch.pageY;
-			}
-		});
-		document.addEventListener('touchend', function (e) {
-			e.preventDefault();
-			if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
-				var touch = e.touches[0] || e.changedTouches[0];
-				touchStopPos = touch.pageY;
-			}
-			if (touchStartPos + touchMinLength < touchStopPos) {
-				changeSlide(-1);
-			} else if (touchStartPos > touchStopPos + touchMinLength) {
-				changeSlide(1);
-			}
-		});
-
+		if(!isInitialized) {
+            document.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+                if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
+                    var touch = e.touches[0] || e.changedTouches[0];
+                    touchStartPos = touch.pageY;
+                }
+            });
+            document.addEventListener('touchend', function (e) {
+                e.preventDefault();
+                if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
+                    var touch = e.touches[0] || e.changedTouches[0];
+                    touchStopPos = touch.pageY;
+                }
+                if (touchStartPos + touchMinLength < touchStopPos) {
+                    changeSlide(-1);
+                } else if (touchStartPos > touchStopPos + touchMinLength) {
+                    changeSlide(1);
+                }
+            });
+        }
 		isInitialized = true;
 		changeViewLinkAddress(currentSlide);
 	};

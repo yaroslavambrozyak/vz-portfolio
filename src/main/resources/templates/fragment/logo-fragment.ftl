@@ -1,4 +1,4 @@
-<a class="site-logo" href="/main" th:fragment="site-logo" xmlns:th="http://www.w3.org/1999/xhtml">
+<a class="site-logo" href="/main">
     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.21 32.76">
         <defs>
             <style>
