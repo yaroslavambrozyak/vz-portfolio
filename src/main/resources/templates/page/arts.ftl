@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 <#include "../fragment/logo-fragment.ftl">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +19,10 @@
     </button>
 <#include "../fragment/navigation-fragment.ftl">
 </nav>
-<div class="art-menu-container">
-    <#include "../fragment/art-type-navigation-fragment.ftl">
-    <div class="container-fluid arts-container">
-        <#include "../fragment/arts-fragment.ftl">
-    </div>
+<#include "../fragment/art-type-navigation-fragment.ftl">
+<div class="container-fluid arts-container">
+    <#include "../fragment/arts-fragment.ftl">
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
