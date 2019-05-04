@@ -45,6 +45,15 @@ public class ArtServiceImpl implements ArtService {
                 .name("qweqwee")
                 .build();
 
-        return Arrays.asList(art1, art3, art2);
+        Art art4 = Art.builder()
+                .imagePath("/art/main.jpg")
+                .name("hello")
+                .build();
+
+        Art art5 = Art.builder()
+                .imagePath("/art/main.jpg")
+                .name("hello")
+                .build();
+        return Arrays.asList(art1, art3, art2, art4, art5);
     }
 }

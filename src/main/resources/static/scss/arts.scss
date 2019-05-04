@@ -1,0 +1,35 @@
+@import "style";
+
+.navbar {
+  background-color: black;
+}
+
+.body{
+  overflow: hidden;
+}
+
+.image-container {
+  width: 100%;
+  padding-top: 25%;
+  background-position: center center !important;
+  background-size: cover !important;
+  overflow: auto;
+}
+
+.art-menu-container {
+  position: relative;
+}
+
+.type-link-container {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+}
+
+.arts-container{
+  position: absolute;
+  top: 0;
+}

@@ -10,8 +10,6 @@ var slider = function (sliderElement) {
     var slidesAmount = document.getElementsByClassName("slide").length;
     var viewLink = document.querySelector(".view-link");
 	currentSlide = 1;
-    alert(currentSlide);
-	alert(slidesAmount);
 
 	var init = function () {
 		if(!isInitialized) {
