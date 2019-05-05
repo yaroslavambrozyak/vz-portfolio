@@ -28,15 +28,14 @@ html, body {
 }
 
 .site-navigation-link {
-  color: white;
-  font-family: Arapey-Regular;
-  font-size: calc(.5vw + .5vh + .2vmin);
-  font-family: Arapey-Regular;
-  text-decoration: none;
+  color: white !important;
+  font-size: calc(.5vw + .5vh + .2vmin) !important;;
+  font-family: Arapey-Regular !important;;
+  text-decoration: none !important;;
 
   &:hover {
-    color: $selected-color;
-    transition: all 2s ease;
+    color: $selected-color !important;;
+    transition: all 2s ease !important;;
   }
 
 }
