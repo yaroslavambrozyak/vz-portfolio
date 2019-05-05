@@ -41,6 +41,9 @@ body.slider__body {
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+
+	animation: load-fadein 2s ease;
+	transition: all 2s ease;
 }
 .slider__indicator {
 	display: block;
@@ -48,10 +51,20 @@ body.slider__body {
 	height: 10px;
 	margin: 10px 0;
 	border-radius: 100px;
-	/*background-color: #fff;*/
 	color: white;
 	cursor: default;
+
 }
+.slider__indicator:hover{
+	color: white;
+	text-decoration: none;
+}
+
 .slider__indicator--active {
 	color: #fe8013;
+}
+
+.slider__indicator--active:hover{
+	color: #fe8013 !important;
+	text-decoration: none;
 }

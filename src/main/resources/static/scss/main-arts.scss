@@ -1,5 +1,9 @@
 @import "style";
 
+.transparent-nav {
+  background-color: rgba(0,0,0,0) !important;
+}
+
 .type-link-container {
   position: absolute;
   left: 50%;
@@ -99,11 +103,6 @@
   left: 0;
   transform: translateX(-101%);
   transition: all .3s ease;
-}
-
-.slider__indicators{
-  animation: load-fadein 2s ease;
-  transition: all 2s ease;
 }
 
 .main-art-component{

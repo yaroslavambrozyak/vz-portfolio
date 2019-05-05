@@ -3,16 +3,16 @@ var isInitialized = false;
 
 var slider = function (sliderElement) {
 
-	var pages = [];
-	var isChanging = false;
-	var keyUp = {38:1, 33:1};
-	var keyDown = {40:1, 34:1};
+    var pages = [];
+    var isChanging = false;
+    var keyUp = {38: 1, 33: 1};
+    var keyDown = {40: 1, 34: 1};
     var slidesAmount = document.getElementsByClassName("slide").length;
     var viewLink = document.querySelector(".view-link");
-	currentSlide = 1;
+    currentSlide = 1;
 
-	var init = function () {
-		if(!isInitialized) {
+    var init = function () {
+        if (!isInitialized) {
             document.body.classList.add('slider__body');
 
             // control scrolling
@@ -45,41 +45,41 @@ var slider = function (sliderElement) {
                 }
             });
         }
-		// set up page and build visual indicators
-		document.querySelector(sliderElement).classList.add('slider__container');
-		var indicatorContainer = document.createElement('div');
-		indicatorContainer.classList.add('slider__indicators');
+        // set up page and build visual indicators
+        document.querySelector(sliderElement).classList.add('slider__container');
+        var indicatorContainer = document.createElement('div');
+        indicatorContainer.classList.add('slider__indicators');
 
 
+        var index = 1;
+        [].forEach.call(document.querySelectorAll(sliderElement + ' > *'), function (section) {
 
-		var index = 1;
-		[].forEach.call(document.querySelectorAll(sliderElement + ' > *'), function (section) {
+            var indicator = document.createElement('a');
+            indicator.classList.add('slider__indicator');
+            indicator.setAttribute('data-slider-target-index', index);
+            indicator.setAttribute('tabindex', '-1');
+            indicatorContainer.appendChild(indicator);
 
-			var indicator = document.createElement('a');
-			indicator.classList.add('slider__indicator');
-			indicator.setAttribute('data-slider-target-index', index);
-			indicatorContainer.appendChild(indicator);
+            if (index === 1)
+                indicator.innerHTML = index + "/" + slidesAmount;
+            else
+                indicator.innerHTML = "&nbsp;/&nbsp;";
 
-			if(index === 1)
-            	indicator.innerHTML = index + "/" + slidesAmount;
-			else
-				indicator.innerHTML = "&nbsp;/&nbsp;";
+            section.classList.add('slider__page');
+            pages.push(section);
+            section.setAttribute('data-slider-index', index++);
 
-			section.classList.add('slider__page');
-			pages.push(section);
-			section.setAttribute('data-slider-index', index++);
+        });
 
-		});
-
-		document.body.appendChild(indicatorContainer);
-		document.querySelector('a[data-slider-target-index = "' + currentSlide +'"]').classList.add('slider__indicator--active');
+        document.body.appendChild(indicatorContainer);
+        document.querySelector('a[data-slider-target-index = "' + currentSlide + '"]').classList.add('slider__indicator--active');
 
 
-		// stuff for touch devices
-		var touchStartPos = 0;
-		var touchStopPos = 0;
-		var touchMinLength = 90;
-		if(!isInitialized) {
+        // stuff for touch devices
+        var touchStartPos = 0;
+        var touchStopPos = 0;
+        var touchMinLength = 90;
+        if (!isInitialized) {
             document.addEventListener('touchstart', function (e) {
                 e.preventDefault();
                 if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
@@ -100,96 +100,97 @@ var slider = function (sliderElement) {
                 }
             });
         }
-		isInitialized = true;
-		changeViewLinkAddress(currentSlide);
-	};
-
-
-	// prevent double scrolling
-	var detectChangeEnd = function () {
-		var transition;
-		var e = document.createElement('foobar');
-		var transitions = {
-			'transition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'MozTransition': 'transitionend',
-			'WebkitTransition': 'webkitTransitionEnd'
-		};
-
-		for(transition in transitions) {
-			if (e.style[transition] !== undefined) {
-				return transitions[transition];
-			}
-		}
-		return true;
-	};
-
-
-	// handle css change
-	var changeCss = function (obj, styles) {
-		for (var _style in styles) {
-			if (obj.style[_style] !== undefined) {
-				obj.style[_style] = styles[_style];
-			}
-		}
-	};
-
-
-	// change view button address on slide changes
-	var changeViewLinkAddress = function (index) {
-		var elements = document.getElementsByClassName("art-name");
-		var element = elements[index-1];
-		viewLink.href = element.innerHTML;
+        isInitialized = true;
+        changeViewLinkAddress(currentSlide);
     };
 
-	// handle page/section change
-	var changeSlide = function (direction) {
 
-		// already doing it or last/first page, staph plz
-		if (isChanging || (direction == 1 && currentSlide == pages.length) || (direction == -1 && currentSlide == 1)) {
-			return;
-		}
+    // prevent double scrolling
+    var detectChangeEnd = function () {
+        var transition;
+        var e = document.createElement('foobar');
+        var transitions = {
+            'transition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'MozTransition': 'transitionend',
+            'WebkitTransition': 'webkitTransitionEnd'
+        };
 
-		// change page
-		currentSlide += direction;
-		isChanging = true;
-		changeCss(document.querySelector(sliderElement), {
-			transform: 'translate3d(0, ' + -(currentSlide - 1) * 100 + '%, 0)'
-		});
+        for (transition in transitions) {
+            if (e.style[transition] !== undefined) {
+                return transitions[transition];
+            }
+        }
+        return true;
+    };
 
-		changeViewLinkAddress(currentSlide);
 
-		// change dots
+    // handle css change
+    var changeCss = function (obj, styles) {
+        for (var _style in styles) {
+            if (obj.style[_style] !== undefined) {
+                obj.style[_style] = styles[_style];
+            }
+        }
+    };
+
+
+    // change view button address on slide changes
+    var changeViewLinkAddress = function (index) {
+        var elements = document.getElementsByClassName("art-name");
+        var element = elements[index - 1];
+        viewLink.href = element.innerHTML;
+    };
+
+    // handle page/section change
+    var changeSlide = function (direction) {
+
+        // already doing it or last/first page, staph plz
+        if (isChanging || (direction == 1 && currentSlide == pages.length) || (direction == -1 && currentSlide == 1)) {
+            return;
+        }
+
+        // change page
+        currentSlide += direction;
+        isChanging = true;
+        changeCss(document.querySelector(sliderElement), {
+            transform: 'translate3d(0, ' + -(currentSlide - 1) * 100 + '%, 0)'
+        });
+
+        changeViewLinkAddress(currentSlide);
+
+        // change dots
         var oldSlideNav = document.querySelector('a.slider__indicator--active');
-		oldSlideNav.classList.remove('slider__indicator--active');
-		oldSlideNav.innerHTML = "&nbsp;/&nbsp;";
+        oldSlideNav.classList.remove('slider__indicator--active');
+        oldSlideNav.innerHTML = "&nbsp;/&nbsp;";
 
-        var newSlideNav = document.querySelector('a[data-slider-target-index="' + currentSlide +'"]');
-		newSlideNav.classList.add('slider__indicator--active');
-		newSlideNav.innerHTML = currentSlide + "/" + slidesAmount;
-	};
+        var newSlideNav = document.querySelector('a[data-slider-target-index="' + currentSlide + '"]');
+        newSlideNav.classList.add('slider__indicator--active');
+        newSlideNav.innerHTML = currentSlide + "/" + slidesAmount;
+    };
 
-	// go to spesific slide if it exists
-	var gotoSlide = function (where) {
-		var target = document.querySelector(where).getAttribute('data-slider-index');
-		if (target != currentSlide && document.querySelector(where)) {
-			changeSlide(target - currentSlide);
-		}
-	};
+    // go to spesific slide if it exists
+    var gotoSlide = function (where) {
+        var target = document.querySelector(where).getAttribute('data-slider-index');
+        if (target != currentSlide && document.querySelector(where)) {
+            changeSlide(target - currentSlide);
+        }
+    };
 
-	// if page is loaded with hash, go to slide
-	if (location.hash) {
-	  setTimeout(function () {
-	    window.scrollTo(0, 0);
-	    gotoSlide(location.hash);
-	  }, 1);
-	};
+    // if page is loaded with hash, go to slide
+    if (location.hash) {
+        setTimeout(function () {
+            window.scrollTo(0, 0);
+            gotoSlide(location.hash);
+        }, 1);
+    }
+    ;
 
-	// we have lift off
-	if (document.readyState === 'complete') {
-		init();
-	} else {
-		window.addEventListener('onload', init(), false);
-	}
+    // we have lift off
+    if (document.readyState === 'complete') {
+        init();
+    } else {
+        window.addEventListener('onload', init(), false);
+    }
 };
 
