@@ -40,6 +40,10 @@ html, body {
 
 }
 
+.active{
+  color: $selected-color !important;
+}
+
 .site-logo {
   min-width: 70px;
   width: calc(6vw + 5.5vh);

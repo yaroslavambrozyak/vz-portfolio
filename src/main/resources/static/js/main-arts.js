@@ -29,7 +29,7 @@ function onStartLinkClick() {
             sliderContainer.insertAdjacentHTML('beforeend', response);
             document.querySelector('.footer-container').style.display = 'block';
             document.querySelector('.header-container').style.display = 'block';
-            document.querySelector('.type-link').classList.add("active");
+            //document.querySelector('.type-link').classList.add("active");
             slider('.slides');
         }, delay);
     });

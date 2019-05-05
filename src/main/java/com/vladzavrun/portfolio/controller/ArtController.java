@@ -55,7 +55,7 @@ public class ArtController {
     }
 
     @GetMapping("/art")
-    public String showArtPage() {
-        return null;
+    public String showArtPage(Model model) {
+        return "/page/art";
     }
 }

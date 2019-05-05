@@ -6,7 +6,21 @@
 
 body{
   opacity: 0;
-  background-color: black;
+  background-color: black !important;
+}
+
+.type-link {
+  font-family: Arapey-Regular;
+  color: white;
+  transition: color 1s ease;
+  text-decoration: none;
+  font-size: calc(.5vw + .5vh + .2vmin);
+  cursor: pointer;
+
+  &:hover {
+    color: $selected-color;
+  }
+
 }
 
 .image-container {
