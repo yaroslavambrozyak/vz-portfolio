@@ -1,16 +1,16 @@
-/*var links = document.getElementsByTagName('a');
+let links = document.getElementsByClassName('animated-transition');
+let body = document.querySelector('body');
 
-for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function (event) {
+Array.from(links).forEach((link) => {
+    link.addEventListener('click', event => {
         event.preventDefault();
-        var element = event.target;
-        var href = element.href;
-        var body = document.getElementsByTagName('body')[0];
+        let element = event.target;
+        let href = element.href;
         body.style.opacity = 0;
-        setTimeout(function () {
+        setTimeout(()=>{
             window.location.href = href;
         }, 700)
     });
-}*/
+});
 
 
