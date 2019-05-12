@@ -81,10 +81,14 @@
 .slides{
   height: 100%;
   filter: grayscale(100%);
-  transition: all 2s ease;
+  transition: filter 2s ease;
 }
 
-.slide {
+.slide{
+  height: 100%;
+}
+
+.slide-img-container{
   background: no-repeat center;
   background-size: cover;
   height: 100%;

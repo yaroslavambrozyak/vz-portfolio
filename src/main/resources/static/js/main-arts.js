@@ -22,15 +22,14 @@ function onStartLinkClick() {
     doAjaxCall("/main?preload=true").then((response) => {
         let end = new Date().getMilliseconds();
         let diff = end - begin;
-        let delay = diff < 2100 ? 2100 : 0;
+        let delay = diff < 2100 ? 2100 - diff : 0;
         setTimeout(function () {
             document.getElementById("preload-text-container").style.display = "none";
             let sliderContainer = document.querySelector('.slides');
             sliderContainer.insertAdjacentHTML('beforeend', response);
+            slider('.slides');
             document.querySelector('.footer-container').style.display = 'block';
             document.querySelector('.header-container').style.display = 'block';
-            //document.querySelector('.type-link').classList.add("active");
-            slider('.slides');
         }, delay);
     });
 }
@@ -69,8 +68,6 @@ function onTypeLinkClick(clickedLink) {
         sliderIndicators.style.opacity = 1;
     });
 }
-
-
 
 
 

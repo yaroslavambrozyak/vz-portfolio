@@ -15,6 +15,10 @@ var slider = function (sliderElement) {
         if (!isInitialized) {
             document.body.classList.add('slider__body');
 
+            /*changeCss(document.querySelector(sliderElement), {
+                transform: 'translate3d(0, ' + -(currentSlide - 1) * 100 + '%, 0)'
+            });*/
+
             // control scrolling
             whatWheel = 'onwheel' in document.createElement('div') ? 'wheel' : document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
             window.addEventListener(whatWheel, function (e) {
