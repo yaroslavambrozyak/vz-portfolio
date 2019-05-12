@@ -13,7 +13,7 @@ $selected-color: #fe8013;
 html, body {
   height: 100%;
   margin: 0;
-  background-color: black;
+  background-color: black !important;
   transition: opacity .7s ease;
 }
 

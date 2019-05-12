@@ -31,18 +31,13 @@ public class ArtServiceImpl implements ArtService {
 
     private List<Art> prepareArt() {
         Art art1 = Art.builder()
-                .imagePath("/art/main.jpg")
+                .imagePath("https://cdna.artstation.com/p/assets/images/images/012/460/512/large/eddie-mendoza-biker-girl.jpg?1534910429")
                 .name("hello")
                 .build();
 
         Art art2 = Art.builder()
                 .imagePath("https://pmcvariety.files.wordpress.com/2018/08/slash-chester-bennington.jpg?w=998&h=563&crop=1")
                 .name("123123")
-                .build();
-
-        Art art3 = Art.builder()
-                .imagePath("https://www.kerrang.com/assets/images/47412/Slash-And-Myles_b4b62e6b8feb204f329c1700ab8c6c4a.jpg")
-                .name("qweqwee")
                 .build();
 
         Art art4 = Art.builder()
@@ -54,6 +49,6 @@ public class ArtServiceImpl implements ArtService {
                 .imagePath("/art/main.jpg")
                 .name("hello")
                 .build();
-        return Arrays.asList(art1, art3, art2, art4, art5);
+        return Arrays.asList(art1, art2, art4, art5);
     }
 }

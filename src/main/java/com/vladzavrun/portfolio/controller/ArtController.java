@@ -6,6 +6,7 @@ import com.vladzavrun.portfolio.tool.AjaxTools;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,8 +55,8 @@ public class ArtController {
         return AjaxTools.isAjaxRequest(request) ? "/fragment/arts-fragment" : "/page/arts";
     }
 
-    @GetMapping("/art")
-    public String showArtPage(Model model) {
+    @GetMapping("/arts/{name}")
+    public String showArtPage(Model model, @PathVariable("name") String artName) {
         return "/page/art";
     }
 }

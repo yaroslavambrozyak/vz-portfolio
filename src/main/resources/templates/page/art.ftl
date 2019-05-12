@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>VLAD ZVARUN</title>
-    <link rel="stylesheet" href="/css/arts.css">
+    <link rel="stylesheet" href="/css/art.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -19,8 +19,42 @@
     </button>
 <#include "../fragment/navigation-fragment.ftl">
 </nav>
+<div class="art-navigation-arrow-container">
+    <a href="#" class="left-button">
+        <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="prev" transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
+                <polygon class="arrow" fill="#FFFFFF" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            </g>
+        </svg>
+        <span class="prev-art">previous work</span>
+    </a>
 
+    <a href="#" class="right-button">
+        <span class="next-art">next work</span>
+        <svg width="18px" height="17px" viewBox="-1 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <polygon class="arrow" fill="#FFFFFF" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            </g>
+        </svg>
+    </a>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-6 img-container">
+        <div class="img" style="background-color: #fe8013"></div>
+        <div class="img" style="background-color: aqua"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+    </div>
 
+    <div class="col-sm-12 col-md-6 description-container">
+        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</br>
+        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</br>
+        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</br>
+        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</br>
+        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</br>
+    </div>
+</div>
+<script src="/js/art.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
