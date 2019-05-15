@@ -21,7 +21,7 @@
 <div id="preload-text-container">
     <h1 id="preload-owner-name">Vlad Zvarun</h1>
     <h3 id="preload-profession"></h3>
-    <span id="preload-link" onclick="onStartLinkClick()">START</span>
+    <span id="preload-link">START</span>
 </div>
 
 <!--After preload content, header and footer containers are hidden on preload-->
@@ -44,7 +44,7 @@
 
 <div class="footer-container" style="display: none;">
 <#include "../fragment/rights-fragment.ftl">
-    <a onmouseover="onViewLinkHover()" onmouseout="onViewLinkHoverOut()" class="view-link">View</a>
+    <a class="view-link">View</a>
 <#include "../fragment/social-links-fragment.ftl">
 </div>
 

@@ -14,7 +14,7 @@ function onViewLinkHoverOut() {
     artName.style.transform = "translateX(-101%)";
 }
 
-function onStartLinkClick() {
+document.getElementById('preload-link').onclick = () => {
     document.getElementById("preload-text-container").style.opacity = "0";
     document.querySelector(".slides").style.filter = "grayscale(0%)";
 
@@ -32,7 +32,7 @@ function onStartLinkClick() {
             document.querySelector('.header-container').style.display = 'block';
         }, delay);
     });
-}
+};
 
 function doAjaxCall(url) {
     return new Promise(function (succeed, fail) {
@@ -60,7 +60,7 @@ function onTypeLinkClick(clickedLink) {
     let href = '/main?type=' + clickedLink.innerHTML;
     let sliderIndicators = document.querySelector('.slider__indicators');
     sliderIndicators.style.opacity = 0;
-    doAjaxCall(href).then((response) =>{
+    doAjaxCall(href).then((response) => {
         slidesContainer.innerHTML = response;
         slidesContainer.style.opacity = 1;
         sliderIndicators.parentNode.removeChild(sliderIndicators);
