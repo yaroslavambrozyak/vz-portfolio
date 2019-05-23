@@ -38,12 +38,12 @@
         </svg>
     </a>
 </div>
-<div class="row">
-    <div class="col-sm-12 col-md-6 img-container">
+<div class="row img-row">
+    <div class="col-sm-12 col-md-6 img-container" tabindex="-1" id="focused">
         <div class="img" style="background-color: #fe8013"></div>
         <div class="img" style="background-color: aqua"></div>
-        <div class="img"></div>
-        <div class="img"></div>
+        <div class="img" style="background-color: #FF0000"></div>
+        <div class="img" style="background-color: brown"></div>
     </div>
 
     <div class="col-sm-12 col-md-6 description-container">
