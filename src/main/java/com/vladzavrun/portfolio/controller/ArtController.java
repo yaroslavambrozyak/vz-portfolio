@@ -1,5 +1,6 @@
 package com.vladzavrun.portfolio.controller;
 
+import com.vladzavrun.portfolio.aop.AjaxRequire;
 import com.vladzavrun.portfolio.model.Art;
 import com.vladzavrun.portfolio.service.ArtService;
 import com.vladzavrun.portfolio.tool.AjaxTools;
@@ -28,14 +29,10 @@ public class ArtController {
     }
 
     @GetMapping("/main")
-    public String showMainArtPage(HttpServletRequest request, Model model
+    @AjaxRequire(fallBackUrl = "redirect:/")
+    public String showMainArtPage(Model model
             , @RequestParam(value = "type", required = false, defaultValue = "concept") String type
             , @RequestParam(value = "preload", required = false) boolean afterPreload) {
-
-        if (!AjaxTools.isAjaxRequest(request)) {
-            return "redirect:/";
-        }
-
         List<Art> arts;
         if (afterPreload) {
             List<Art> artList = artService.getMainArtsByCategory(type);
