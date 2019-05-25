@@ -46,12 +46,12 @@
 }
 
 #preload-owner-name {
-  font-size: 6vh;
+  font-size: calc(25px + 1.5vw);
 }
 
 #preload-profession {
   color: white;
-  font-size: 4vh;
+  font-size: calc(15px + 1vw);
   &:after {
     content: "Graphic Designer";
     animation: profession-change-animation 3s linear infinite;
@@ -61,7 +61,7 @@
 #preload-link {
   cursor: pointer;
   color: white;
-  font-size: 2vh;
+  font-size: calc(15px + .2vw);
   transition: all 1s ease;
   &:hover{
     color: $selected-color;

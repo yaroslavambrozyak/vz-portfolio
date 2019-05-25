@@ -87,7 +87,7 @@ a svg:hover .cls-1 {
   color: white;
   margin: 1vw;
   font-family: Arapey-Regular;
-  font-size: .8vw;
+  font-size: calc(10px + .6vw);
 }
 
 .navigation-separator{
