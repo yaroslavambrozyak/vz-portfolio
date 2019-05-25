@@ -29,9 +29,9 @@ html, body {
 
 .site-navigation-link {
   color: white !important;
-  font-size: calc(.5vw + .5vh + .2vmin) !important;;
-  font-family: Arapey-Regular !important;;
-  text-decoration: none !important;;
+  font-size: .9vw !important;
+  font-family: Arapey-Regularc !important;
+  text-decoration: none !important;
 
   &:hover {
     color: $selected-color !important;;
@@ -81,6 +81,32 @@ a svg:hover .cls-1 {
   color: white;
   font-family: Arapey-Regular;
   font-size: calc(.5vw + .5vh + .2vmin);
+}
+
+.text-separator{
+  color: white;
+  margin: 1vw;
+  font-family: Arapey-Regular;
+  font-size: .8vw;
+}
+
+.navigation-separator{
+  color: white;
+  font-family: Arapey-Regular;
+  font-size: .9vw;
+  margin-left: .6vw;
+  margin-right: .6vw;
+  margin-top: 8px;
+}
+
+.type-link{
+  font-family: Arapey-Regular;
+}
+
+@media screen and (max-width: 991px) {
+  .navigation-separator{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1024px) {

@@ -3,6 +3,7 @@ package com.vladzavrun.portfolio.controller;
 import com.vladzavrun.portfolio.aop.AjaxRequire;
 import com.vladzavrun.portfolio.model.Art;
 import com.vladzavrun.portfolio.service.ArtService;
+import com.vladzavrun.portfolio.service.CategoryService;
 import com.vladzavrun.portfolio.tool.AjaxTools;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,16 @@ import java.util.List;
 public class ArtController {
 
     private final ArtService artService;
+    private final CategoryService categoryService;
 
-    public ArtController(ArtService artService) {
+    public ArtController(ArtService artService, CategoryService categoryService) {
         this.artService = artService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/")
     public String showPreloadPage(Model model) {
+        model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("arts", artService.getMainArtsByCategory("concept").subList(0, 1));
         return "/page/main";
     }

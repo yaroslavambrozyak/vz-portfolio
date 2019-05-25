@@ -15,7 +15,7 @@
     width: 5vw;
     border-bottom: solid 1px rgba(255, 255, 255, 0.6);
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: 105%;
   }
   &:after {
@@ -23,7 +23,7 @@
     width: 5vw;
     border-bottom: solid 1px rgba(255, 255, 255, 0.6);
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 105%;
   }
 }
@@ -33,7 +33,7 @@
   color: white;
   transition: color 1s ease;
   text-decoration: none;
-  font-size: calc(.5vw + .5vh + .2vmin);
+  font-size: .9vw;
   cursor: pointer;
 
   &:hover {
@@ -69,7 +69,7 @@
   transform: translateX(-50%);
   color: white;
   transition: all 1s ease;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: calc(.6vw + .6vh + .2vmin);
   font-family: Arapey-Regular;
 
