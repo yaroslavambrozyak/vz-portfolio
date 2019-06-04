@@ -1,20 +1,6 @@
 let slidesContainer = document.querySelector(".slides");
 let currentSlideIndex = 0;
 
-function onViewLinkHover() {
-    let artNames = document.getElementsByClassName("art-name");
-    let artName = artNames[currentSlide - 1];
-    artName.style.transform = "translateX(0%)";
-    artName.style.left = "5%";
-}
-
-function onViewLinkHoverOut() {
-    let artNames = document.getElementsByClassName("art-name");
-    let artName = artNames[currentSlide - 1];
-    artName.style.left = "0%";
-    artName.style.transform = "translateX(-101%)";
-}
-
 document.getElementById('preload-link').onclick = () => {
     document.getElementById("preload-text-container").style.opacity = "0";
     document.querySelector(".slides").style.filter = "grayscale(0%)";
@@ -82,7 +68,7 @@ function initSlider() {
         navigationPosition: 'right',
         scrollingSpeed: 950,
         easingcss3: 'cubic-bezier(1,.67,0,.98)',
-        
+        licenseKey: '1B6F0697-D7C5407B-BD386A4C-C79B4EB8',
         afterLoad: function (origin, destination, direction) {
             changeSliderNav();
             if (origin === null) {

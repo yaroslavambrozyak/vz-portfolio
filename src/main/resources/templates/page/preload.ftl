@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>VLAD ZVARUN</title>
+    <link rel="stylesheet" href="/css/preload.css">
     <link rel="stylesheet" href="/css/main-arts.css"/>
     <!--<link rel="stylesheet" href="/css/slider.css">-->
     <link rel="stylesheet" href="/css/fullpage.css"/>
@@ -12,6 +13,19 @@
 </head>
 <body>
 
+<!-- vz preload animation part -->
+<div id="preload-logo-container">
+    <img id="preload-animation" src="/img/load.gif">
+</div>
+
+<!-- vz preload text part-->
+<div id="preload-text-container">
+    <h1 id="preload-owner-name">Vlad Zvarun</h1>
+    <h3 id="preload-profession"></h3>
+    <span id="preload-link">START</span>
+</div>
+
+<!--After preload content, header and footer containers are hidden on preload-->
 <div class="header-container" style="display: none">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent-nav">
     <#include "../fragment/logo-fragment.ftl">
