@@ -29,7 +29,7 @@ html, body {
 
 .site-navigation-link {
   color: white !important;
-  font-size: .9vw !important;
+  font-size: calc(.7vh + .6vw) !important;
   font-family: Arapey-Regularc !important;
   text-decoration: none !important;
 
@@ -46,7 +46,7 @@ html, body {
 
 .site-logo {
   min-width: 70px;
-  width: calc(6vw + 5.5vh);
+  width: calc(7vw + 9vh);
 }
 
 .social-link {

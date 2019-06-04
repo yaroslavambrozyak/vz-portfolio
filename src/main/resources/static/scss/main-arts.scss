@@ -1,7 +1,7 @@
 @import "style";
 
 .transparent-nav {
-  background-color: rgba(0,0,0,0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .type-link-container {
@@ -15,7 +15,7 @@
     width: 5vw;
     border-bottom: solid 1px rgba(255, 255, 255, 0.6);
     position: absolute;
-    top: 60%;
+    top: 50%;
     right: 105%;
   }
   &:after {
@@ -23,7 +23,7 @@
     width: 5vw;
     border-bottom: solid 1px rgba(255, 255, 255, 0.6);
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 105%;
   }
 }
@@ -33,7 +33,7 @@
   color: white;
   transition: color 1s ease;
   text-decoration: none;
-  font-size: calc(12px + .7vw);
+  font-size: calc(1.2vh + .7vw);
   cursor: pointer;
 
   &:hover {
@@ -67,28 +67,28 @@
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: white !important;
   transition: all 1s ease;
   text-decoration: none !important;
   font-size: calc(.6vw + .6vh + .2vmin);
   font-family: Arapey-Regular;
 
   &:hover {
-    color: $selected-color;
+    color: $selected-color !important;
   }
 }
 
-.slides{
+.slides {
   height: 100%;
   filter: grayscale(100%);
   transition: filter 2s ease;
 }
 
-.slide{
+.slide {
   height: 100%;
 }
 
-.slide-img-container{
+.slide-img-container {
   background: no-repeat center;
   background-size: cover;
   height: 100%;
@@ -105,17 +105,37 @@
   transition: all .3s ease;
 }
 
-.main-art-component{
-  height:100%;
+.main-art-component {
+  height: 100%;
 }
 
 @keyframes load-fadein {
-  from{opacity: 0;}
-  to{opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#fp-nav ul li a{
+#fp-nav ul li a {
   color: white;
   font-family: Arapey-Regular;
   text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+
+  .type-link-container:before, .type-link-container:after {
+    visibility: hidden;
+  }
+
+  .rights{
+    display: none;
+  }
+
+  .footer-container{
+    display: none;
+  }
+
 }

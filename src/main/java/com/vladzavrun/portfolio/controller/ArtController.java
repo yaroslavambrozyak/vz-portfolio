@@ -52,6 +52,7 @@ public class ArtController {
 
     @GetMapping("/arts")
     public String showAllArtsPage(Model model, HttpServletRequest request) {
+        model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("arts", artService.getMainArtsByCategory("concept"));
         return AjaxTools.isAjaxRequest(request) ? "/fragment/arts-fragment" : "/page/arts";
     }

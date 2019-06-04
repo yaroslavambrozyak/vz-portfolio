@@ -1,4 +1,5 @@
 let slidesContainer = document.querySelector(".slides");
+let currentSlideIndex = 0;
 
 function onViewLinkHover() {
     let artNames = document.getElementsByClassName("art-name");
@@ -73,35 +74,39 @@ function onTypeLinkClick(clickedLink) {
 
 
 function initSlider() {
-/*    $('#fullpage').fullpage({
+
+    new fullpage('#fullpage', {
+        autoScrolling: true,
+        scrollHorizontally: true,
         navigation: true,
+        navigationPosition: 'right',
         scrollingSpeed: 950,
         easingcss3: 'cubic-bezier(1,.67,0,.98)',
-        afterLoad: function () {
+        
+        afterLoad: function (origin, destination, direction) {
             changeSliderNav();
+            if (origin === null) {
+                changeViewLink(currentSlideIndex);
+            } else {
+                currentSlideIndex = origin.index + 1
+                changeViewLink(currentSlideIndex);
+            }
         }
     });
 
     let spanElements = document.querySelectorAll('#fp-nav ul li a span');
-    for(let i = 0; i<spanElements.length; i++){
+    for (let i = 0; i < spanElements.length; i++) {
         spanElements[i].parentNode.removeChild(spanElements[i]);
     }
 
-    changeSliderNav();*/
-
-    new fullpage('#fullpage', {
-        //options here
-        autoScrolling:true,
-        scrollHorizontally: true
-    });
 }
 
 function changeSliderNav() {
     let navigation = document.querySelectorAll('#fp-nav ul li a');
     console.log(navigation);
-    for(let i = 0; i<navigation.length; i++){
+    for (let i = 0; i < navigation.length; i++) {
         let navElem = navigation[i];
-        if(navElem.classList.contains('active')){
+        if (navElem.classList.contains('active')) {
             navElem.innerHTML = i + 1 + '/' + navigation.length;
         } else {
             navElem.innerHTML = '&nbsp;/';
@@ -110,3 +115,23 @@ function changeSliderNav() {
 }
 
 
+let viewLinkElement = document.querySelector('.view-link');
+
+function changeViewLink(sliderIndex) {
+    let artName = document.getElementsByClassName('art-name')[sliderIndex].innerHTML;
+    viewLinkElement.href = '/art/' + artName;
+}
+
+viewLinkElement.onmouseover = () => {
+    let artNames = document.getElementsByClassName("art-name");
+    let artName = artNames[currentSlideIndex];
+    artName.style.transform = "translateX(0%)";
+    artName.style.left = "5%";
+};
+
+viewLinkElement.onmouseout = () => {
+    let artNames = document.getElementsByClassName("art-name");
+    let artName = artNames[currentSlideIndex];
+    artName.style.left = "0%";
+    artName.style.transform = "translateX(-101%)";
+};
