@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ArtController {
@@ -53,10 +52,11 @@ public class ArtController {
     }
 
     @GetMapping("/arts")
-    public String showAllArtsPage(Model model, HttpServletRequest request) {
+    public String showAllArtsPage(Model model, @IsAjaxRequest Boolean ajaxRequest
+            , @RequestParam(name = "type", defaultValue = "concept") String category) {
         model.addAttribute("categories", categoryService.getAllCategories());
-        model.addAttribute("arts", artService.getMainArtsByCategory("concept"));
-        return AjaxTools.isAjaxRequest(request) ? "/fragment/arts-fragment" : "/page/arts";
+        model.addAttribute("arts", artService.getMainArtsByCategory(category));
+        return ajaxRequest ? "/fragment/arts-fragment" : "/page/arts";
     }
 
     @GetMapping("/arts/{name}")
