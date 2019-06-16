@@ -9,4 +9,6 @@ public interface ArtService {
     List<Art> getMainArtsByCategory(String category);
 
     String getPreloadImagePath();
+
+    Art getArtByName(String artName);
 }

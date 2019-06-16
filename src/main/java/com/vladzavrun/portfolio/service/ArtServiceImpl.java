@@ -19,14 +19,38 @@ public class ArtServiceImpl implements ArtService {
         }
 
         return Arrays.asList(Art.builder()
-                .imagePath("https://www.kerrang.com/assets/images/47412/Slash-And-Myles_b4b62e6b8feb204f329c1700ab8c6c4a.jpg")
+                .imagePath("/art/main.jpg")
                 .name("qweqwee")
-                .build());
+                .build() ,
+                Art.builder()
+                        .imagePath("/art/main.jpg")
+                        .name("qweqwee")
+                        .build() ,
+                Art.builder()
+                        .imagePath("/art/main.jpg")
+                        .name("qweqwee")
+                        .build());
     }
 
     @Override
     public String getPreloadImagePath() {
         return "https://pmcvariety.files.wordpress.com/2018/08/slash-chester-bennington.jpg?w=998&h=563&crop=1";
+    }
+
+    @Override
+    public Art getArtByName(String artName) {
+        List<String> sub = Arrays.asList(
+                "http://cdn2.tstatic.net/tribunnews/foto/bank/images/5-fakta-konser-guns-n-roses-di-stadion-utama-gelora-bung-karno-sugbk-jakarta-kamis-8112018_20181107_185235.jpg",
+                "http://cdn2.tstatic.net/tribunnews/foto/bank/images/5-fakta-konser-guns-n-roses-di-stadion-utama-gelora-bung-karno-sugbk-jakarta-kamis-8112018_20181107_185235.jpg",
+                "http://cdn2.tstatic.net/tribunnews/foto/bank/images/5-fakta-konser-guns-n-roses-di-stadion-utama-gelora-bung-karno-sugbk-jakarta-kamis-8112018_20181107_185235.jpg",
+                "http://cdn2.tstatic.net/tribunnews/foto/bank/images/5-fakta-konser-guns-n-roses-di-stadion-utama-gelora-bung-karno-sugbk-jakarta-kamis-8112018_20181107_185235.jpg",
+                "http://cdn2.tstatic.net/tribunnews/foto/bank/images/5-fakta-konser-guns-n-roses-di-stadion-utama-gelora-bung-karno-sugbk-jakarta-kamis-8112018_20181107_185235.jpg"
+                );
+        return Art.builder()
+                .imagePath("https://cdna.artstation.com/p/assets/images/images/012/460/512/large/eddie-mendoza-biker-girl.jpg?1534910429")
+                .name("hello")
+                .sub(sub)
+                .build();
     }
 
     private List<Art> prepareArt() {

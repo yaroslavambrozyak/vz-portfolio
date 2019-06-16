@@ -3,7 +3,7 @@ package com.vladzavrun.portfolio.controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class ExceptionHandlerController {
 
     @ExceptionHandler(Throwable.class)

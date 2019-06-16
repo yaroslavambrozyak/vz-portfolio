@@ -1,44 +1,27 @@
+import {doAjaxCall} from "./ajaxTool.js";
+
 let slidesContainer = document.querySelector(".slides");
 let currentSlideIndex = 0;
 
-document.getElementById('preload-link').onclick = () => {
-    document.getElementById("preload-text-container").style.opacity = "0";
-    document.querySelector(".slides").style.filter = "grayscale(0%)";
+let typeLinks = document.querySelectorAll('.type-link');
+let slideContainer = document.querySelector('.slides');
 
-    let begin = new Date().getMilliseconds();
-    doAjaxCall("/main?preload=true").then((response) => {
-        let end = new Date().getMilliseconds();
-        let diff = end - begin;
-        let delay = diff < 2100 ? 2100 - diff : 0;
-        setTimeout(function () {
-            document.getElementById("preload-text-container").style.display = "none";
-            let sliderContainer = document.querySelector('.slides');
-            sliderContainer.insertAdjacentHTML('beforeend', response);
-            //slider('.slides');
+for (let i = 0; i < typeLinks.length; i++) {
+    let typeLink = typeLinks[i];
+    typeLink.addEventListener("click", (link) => {
+        let target = link.target;
+        let activeLink = document.querySelector('.type-link.active');
+        activeLink.classList.remove('active');
+        target.classList.add('active');
 
+        slidesContainer.style.opacity = 0;
+        doAjaxCall("/main?type=" + target.innerHTML).then(res => {
+            slidesContainer.innerHTML = res;
+            fullpage_api.destroy();
             initSlider();
-            document.querySelector('.footer-container').style.display = 'block';
-            document.querySelector('.header-container').style.display = 'block';
-        }, delay);
-    });
-};
-
-function doAjaxCall(url) {
-    return new Promise(function (succeed, fail) {
-        let request = new XMLHttpRequest();
-        request.open("GET", url, true);
-        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-        request.addEventListener("load", () => {
-            if (request.status < 400)
-                succeed(request.response);
-            else
-                fail(new Error("Request failed: " + request.statusText));
-        });
-        request.addEventListener("error", () => {
-            fail(new Error("Network error"));
-        });
-        request.send();
-    });
+            slidesContainer.style.opacity = 1;
+        })
+    })
 }
 
 function onTypeLinkClick(clickedLink) {
@@ -59,7 +42,7 @@ function onTypeLinkClick(clickedLink) {
 }
 
 
-function initSlider() {
+export function initSlider() {
 
     new fullpage('#fullpage', {
         autoScrolling: true,
@@ -74,7 +57,11 @@ function initSlider() {
             if (origin === null) {
                 changeViewLink(currentSlideIndex);
             } else {
-                currentSlideIndex = origin.index + 1
+                if (direction === 'up') {
+                    currentSlideIndex = origin.index - 1;
+                } else {
+                    currentSlideIndex = origin.index + 1;
+                }
                 changeViewLink(currentSlideIndex);
             }
         }
@@ -89,7 +76,6 @@ function initSlider() {
 
 function changeSliderNav() {
     let navigation = document.querySelectorAll('#fp-nav ul li a');
-    console.log(navigation);
     for (let i = 0; i < navigation.length; i++) {
         let navElem = navigation[i];
         if (navElem.classList.contains('active')) {

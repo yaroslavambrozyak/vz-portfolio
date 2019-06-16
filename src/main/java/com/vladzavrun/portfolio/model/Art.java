@@ -2,6 +2,8 @@ package com.vladzavrun.portfolio.model;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,7 +18,7 @@ public class Art {
     private long mainOrder;
     private long order;
     private String description;
-
     private Category category;
+    private List<String> sub;
 
 }
