@@ -1,5 +1,6 @@
 package com.vladzavrun.portfolio.controller;
 
+import com.vladzavrun.portfolio.aop.IsAjaxRequest;
 import com.vladzavrun.portfolio.model.Art;
 import com.vladzavrun.portfolio.service.ArtService;
 import com.vladzavrun.portfolio.service.CategoryService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URISyntaxException;
@@ -33,17 +35,14 @@ public class ArtController {
     }
 
     @GetMapping("/main")
-    public String showMainPage(HttpServletRequest request, Model model) throws URISyntaxException {
-        boolean ajaxRequest = AjaxTools.isAjaxRequest(request);
-        String category = Optional.ofNullable(request.getParameter("type")).orElse("concept");
-        boolean afterPreload = request.getParameter("preload") != null;
-
+    public String showMainPage(Model model, @IsAjaxRequest Boolean ajaxRequest
+            , @RequestParam(name = "type", defaultValue = "concept") String category
+            , @RequestParam(name = "preload", defaultValue = "false") Boolean afterPreload) throws URISyntaxException {
         if (ajaxRequest) {
             List<Art> mainArts = artService.getMainArtsByCategory(category);
-            if(afterPreload){
+            if (afterPreload) {
                 mainArts.remove(0);
             }
-
             model.addAttribute("arts", mainArts);
             return "/fragment/main-arts-fragment";
         } else {

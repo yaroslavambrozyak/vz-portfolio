@@ -15,7 +15,7 @@ public class CategoryServiceImpl implements CategoryService {
         category1.setName("asdsda");
 
         Category category = new Category();
-        category.setName("qweqweqweqwe");
+        category.setName("concept");
 
         Category category2 = new Category();
         category2.setName("sxcghhhhh");
