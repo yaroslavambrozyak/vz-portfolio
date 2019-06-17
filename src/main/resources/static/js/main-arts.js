@@ -13,34 +13,18 @@ for (let i = 0; i < typeLinks.length; i++) {
         let activeLink = document.querySelector('.type-link.active');
         activeLink.classList.remove('active');
         target.classList.add('active');
-
         slidesContainer.style.opacity = 0;
-        doAjaxCall("/main?type=" + target.innerHTML).then(res => {
-            slidesContainer.innerHTML = res;
-            fullpage_api.destroy();
-            initSlider();
-            slidesContainer.style.opacity = 1;
-        })
+
+        setTimeout(() => {
+            doAjaxCall("/main?type=" + target.innerHTML).then(res => {
+                slidesContainer.innerHTML = res;
+                fullpage_api.destroy();
+                initSlider();
+                slidesContainer.style.opacity = 1;
+            })
+        }, 1000);
     })
 }
-
-function onTypeLinkClick(clickedLink) {
-    let activeLink = document.querySelector('.active');
-    activeLink.classList.remove('active');
-    clickedLink.classList.add('active');
-    slidesContainer.opacity = 0;
-    let href = '/main?type=' + clickedLink.innerHTML;
-    let sliderIndicators = document.querySelector('.slider__indicators');
-    sliderIndicators.style.opacity = 0;
-    doAjaxCall(href).then((response) => {
-        slidesContainer.innerHTML = response;
-        slidesContainer.style.opacity = 1;
-        sliderIndicators.parentNode.removeChild(sliderIndicators);
-        slider('.slides');
-        sliderIndicators.style.opacity = 1;
-    });
-}
-
 
 export function initSlider() {
 

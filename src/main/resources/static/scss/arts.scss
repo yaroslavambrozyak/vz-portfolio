@@ -61,10 +61,14 @@ body {
 .overlay-view{
   position: absolute;
   color: white !important;
-  text-decoration: none;
+  text-decoration: none !important;
   top: 75%;
   left: 50%;
   transform: translateX(-50%);
+  transition: color 1s ease;
+  &:hover{
+    color: $selected-color !important;
+  }
 }
 
 .type-link-container {
@@ -79,6 +83,7 @@ body {
 .arts-container {
   margin-top: 50px;
   opacity: 1;
+  transition: opacity 1s ease;
 }
 
 html {

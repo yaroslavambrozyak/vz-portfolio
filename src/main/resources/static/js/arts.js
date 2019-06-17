@@ -11,7 +11,6 @@ let typeLinks = document.querySelectorAll('.type-link');
 
 for (let i = 0; typeLinks.length; i++) {
     let typeLink = typeLinks[i];
-    console.log(typeLink + " " + i);
     typeLink.addEventListener('click', (link) => {
         let target = link.target;
         let activeLink = document.querySelector('.type-link.active');
@@ -19,10 +18,13 @@ for (let i = 0; typeLinks.length; i++) {
         target.classList.add('active');
 
         artsContainer.style.opacity = 0;
-        doAjaxCall("/arts?type=" + target.innerHTML).then(res => {
-            artsContainer.innerHTML = res;
-            artsContainer.style.opacity = 1;
-        })
+        setTimeout(() => {
+            doAjaxCall("/arts?type=" + target.innerHTML).then(res => {
+                artsContainer.innerHTML = res;
+                artsContainer.style.opacity = 1;
+            })
+        }, 1000);
+
     });
 }
 
