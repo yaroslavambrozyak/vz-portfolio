@@ -87,7 +87,8 @@ a svg .arrow {
 }
 
 .img {
-  height: 350px;
+  max-width: 100%;
+  max-height: 100%;
   padding: 50px;
   cursor: pointer;
 }
@@ -120,8 +121,8 @@ a svg .arrow {
 .img-modal {
   margin: auto;
   display: block;
-  width: 80%;
-  max-width: 700px;
+  width: 70%;
+  max-width: 80%;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -136,14 +137,18 @@ a svg .arrow {
 }
 
 /* The Close Button */
-.image-modal-close {
+.images-modal-close {
   position: absolute;
-  top: 15px;
   right: 35px;
-  color: #f1f1f1;
+  color: white;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  cursor: pointer;
+
+  &:hover{
+    color: $selected-color;
+  }
 }
 
 .close:hover,

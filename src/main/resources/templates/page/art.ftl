@@ -41,7 +41,8 @@
 <div class="row img-row">
     <div class="col-sm-12 col-md-6 img-container" tabindex="-1" id="focused">
         <#list art.sub as href>
-            <div class="img" style="background: url(${href})"></div>
+            <!--<div class="img" style="background: url(${href})"></div>-->
+            <img src="${href}" class="img">
         </#list>
     </div>
 

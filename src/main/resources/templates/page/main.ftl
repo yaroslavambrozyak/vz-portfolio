@@ -13,6 +13,7 @@
     <style>
         body{
             opacity: 0;
+            overflow: hidden;
         }
     </style>
 </head>

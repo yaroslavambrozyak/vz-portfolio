@@ -13,7 +13,7 @@ for (let i = 0; i < imgs.length; i++) {
     let img = imgs[i];
     img.onclick = () => {
         modal.style.display = "block";
-        modalImg.src = this.style.backgroundImage.slice(4, -1).replace(/['"]/g, "");
+        modalImg.src = img.src;
     };
 }
 

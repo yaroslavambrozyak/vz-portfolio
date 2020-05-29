@@ -20,7 +20,7 @@ for (let i = 0; i < typeLinks.length; i++) {
                 slidesContainer.innerHTML = res;
                 fullpage_api.destroy();
                 initSlider();
-                slidesContainer.style.opacity = 1;
+                setTimeout(() => slidesContainer.style.opacity = 1, 1);
             })
         }, 1000);
     })
@@ -75,7 +75,7 @@ let viewLinkElement = document.querySelector('.view-link');
 
 function changeViewLink(sliderIndex) {
     let artName = document.getElementsByClassName('art-name')[sliderIndex].innerHTML;
-    viewLinkElement.href = '/art/' + artName;
+    viewLinkElement.href = '/arts/' + artName;
 }
 
 viewLinkElement.onmouseover = () => {
